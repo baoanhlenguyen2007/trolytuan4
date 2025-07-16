@@ -47,7 +47,15 @@ INITIAL_SYSTEM_MESSAGE = {
         "\n\n" +
         rfile("alzheimer.docx") +
         "\n\n" +
-        rfile("roi_loan_chuyen_hoa.docx")
+        rfile("tieu_duong.docx")+
+        "\n\n" +
+         rfile("loang_xuong.docx")+
+        "\n\n" +
+          rfile("cao_huyet_ap.docx")+
+        "\n\n" +
+           rfile("thoai_hoa_khop.docx")+
+        "\n\n" +
+            rfile("roi_loan_chuyen_hoa.docx")
     )
 }
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
