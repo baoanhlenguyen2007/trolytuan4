@@ -41,13 +41,13 @@ INITIAL_SYSTEM_MESSAGE = {
     "content": (
         rfile("01.system_trainning.txt") +
         "\n\n" +
-        rfile("benhtren50.docx") +
+        rfile("benhtren50tuoi.docx") +
         "\n\n" +
-        rfile("m.docx") +
+        rfile("matngu.docx") +
         "\n\n" +
         rfile("alzheimer.docx") +
         "\n\n" +
-        rfile("roi_loan_chuyen_hoa.d")
+        rfile("roi_loan_chuyen_hoa.docx")
     )
 }
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
