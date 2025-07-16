@@ -41,13 +41,13 @@ INITIAL_SYSTEM_MESSAGE = {
     "content": (
         rfile("01.system_trainning.txt") +
         "\n\n" +
-        rfile("Các-bệnh-phổ-biến-cho-người-trên-tuổi-50.docx") +
+        rfile("benhtren50.docx") +
         "\n\n" +
-        rfile("Phòng-và-điều-trị-mất-ngủ-kéo-dài-cho-người-trung-niên.docx") +
+        rfile("m.docx") +
         "\n\n" +
-        rfile("Phòng-và-điều-trị-suy-giảm-trí-nhớ-alzheimer.docx") +
+        rfile("alzheimer.docx") +
         "\n\n" +
-        rfile("Phòng-và-điều-trị-rối-loạn-chuyển-hóa-cho-người-trung-niên.")
+        rfile("roi_loan_chuyen_hoa.d")
     )
 }
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
