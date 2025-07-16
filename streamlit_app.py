@@ -1,11 +1,18 @@
 import streamlit as st
 from openai import OpenAI
 import os
+from docx import Document
+
 
 # Hàm đọc nội dung từ file văn bản
 def rfile(name_file):
-    with open(name_file, "r", encoding="utf-8") as file:
-        return file.read()
+    if name_file.lower().endswith('.docx'):
+        doc = Document(name_file)
+        content = "\n".join([para.text for para in doc.paragraphs])
+        return content
+    else:
+        with open(name_file, "r", encoding="utf-8") as file:
+            return file.read()
 
 # Hiển thị logo (nếu có)
 try:
@@ -29,7 +36,20 @@ openai_api_key = st.secrets.get("OPENAI_API_KEY")
 client = OpenAI(api_key=openai_api_key)
 
 # Khởi tạo tin nhắn "system" và "assistant"
-INITIAL_SYSTEM_MESSAGE = {"role": "system", "content": rfile("01.system_trainning.txt")}
+INITIAL_SYSTEM_MESSAGE = {
+    "role": "system",
+    "content": (
+        rfile("01.system_trainning.txt") +
+        "\n\n" +
+        rfile("Các-bệnh-phổ-biến-cho-người-trên-tuổi-50.docx") +
+        "\n\n" +
+        rfile("Phòng-và-điều-trị-mất-ngủ-kéo-dài-cho-người-trung-niên.docx") +
+        "\n\n" +
+        rfile("Phòng-và-điều-trị-suy-giảm-trí-nhớ-alzheimer.docx") +
+        "\n\n" +
+        rfile("Phòng-và-điều-trị-rối-loạn-chuyển-hóa-cho-người-trung-niên.")
+    )
+}
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
 
 # Kiểm tra nếu chưa có session lưu trữ thì khởi tạo tin nhắn ban đầu
