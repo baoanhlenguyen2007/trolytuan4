@@ -2,14 +2,25 @@ import streamlit as st
 from openai import OpenAI
 import os
 from docx import Document
+import fitz 
 
 
 # Hàm đọc nội dung từ file văn bản
 def rfile(name_file):
-    if name_file.lower().endswith('.docx'):
+    name_file = name_file.lower()
+    
+    if name_file.endswith('.docx'):
         doc = Document(name_file)
         content = "\n".join([para.text for para in doc.paragraphs])
         return content
+    
+    elif name_file.endswith('.pdf'):
+        content = ""
+        with fitz.open(name_file) as pdf:
+            for page in pdf:
+                content += page.get_text()
+        return content
+
     else:
         with open(name_file, "r", encoding="utf-8") as file:
             return file.read()
@@ -55,7 +66,9 @@ INITIAL_SYSTEM_MESSAGE = {
         "\n\n" +
            rfile("thoai_hoa_khop.docx")+
         "\n\n" +
-            rfile("roi_loan_chuyen_hoa.docx")
+            rfile("roi_loan_chuyen_hoa.docx")+
+        "\n\n" +
+            rfile("baithuoc.pdf")
     )
 }
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
