@@ -1,5 +1,5 @@
-# 💬 Chatbot Anh Lập Trình
+# 💬 Chatbot Doctor Thọ
 
-Chương trình chatbot được tạo ra từ Anh Lập Trình (https://pyan.vn/)
+Chương trình chatbot sức khoẻ của ba Tuấn
 
-
+ 
