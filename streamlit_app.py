@@ -68,7 +68,7 @@ INITIAL_SYSTEM_MESSAGE = {
         "\n\n" +
             rfile("roi_loan_chuyen_hoa.docx")+
         "\n\n" +
-            rfile("baithuoc.pdf")
+            rfile("bam_huyet.docx")
     )
 }
 INITIAL_ASSISTANT_MESSAGE = {"role": "assistant", "content": rfile("02.assistant.txt")}
